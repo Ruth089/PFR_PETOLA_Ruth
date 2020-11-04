@@ -1,7 +1,7 @@
 import React from "react";
 
 import styled from "styled-components";
-import { FaEye, FaHeart } from "react-icons/fa";
+// import { FaEye, FaHeart } from "react-icons/fa";
 
 const CardStyled = styled.div`
   .contenu {
@@ -33,17 +33,18 @@ const CardUi = (props) => {
   return (
     <CardStyled>
       <div className="contenu">
-        <Img src={image} alt="image" />
-        <Text> {description} </Text>
+      image
+        <Img src={""} alt="image" />
+        <Text> "{description}" </Text>
       </div>
       <div className="reaction">
         <i>
-          <FaEye style={{ marginRight: "10px" }} />
+          {/* <FaEye style={{ marginRight: "10px" }} /> */}
           <span>1227</span>
         </i>
         <i>
           <span>2</span>
-          <FaHeart style={{ marginLeft: "10px", color: "red" }} />
+          {/* <FaHeart style={{ marginLeft: "10px", color: "red" }} /> */}
         </i>
       </div>
     </CardStyled>

@@ -5,6 +5,7 @@ import GlobalStyle from  "./style/GlobalStyle";
 import PageDeConnexion from './pages/Connexion';
 import Inscription from './pages/Inscription';
 import Accueils from "./pages/Accueils"
+import TableExamplePagination from "./pages/TableExamplePagination"
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/Accueil">
             <Accueils/>
         </Route>
+        
         <GlobalStyle/> 
       </>
     </Router>

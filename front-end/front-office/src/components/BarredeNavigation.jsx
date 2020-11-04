@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link} from 'react-router-dom';
 import styled from "styled-components";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
+      <>
       <Nav>
         <Logo href="">
           Petola<span>petola</span>
@@ -21,6 +21,8 @@ const Navbar = () => {
           <MenuLink href="">Deconnexion</MenuLink>
         </Menu>
       </Nav>
+      <div style={style}></div>
+      </>
     );
   };
   
@@ -35,7 +37,7 @@ const Navbar = () => {
     transition: all 0.3s ease-in;
     font-size: 1.2rem;
     &:hover {
-      color: #7b7fda;
+      color: #67bc98;
     }
   `;
   
@@ -46,22 +48,27 @@ const Navbar = () => {
     align-items: center;
     flex-wrap: wrap;
     background: white;
-    position: absolute;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
     top: 0;
-    left: 0;
-    right: 0;
+    margin-bottom: 100rem !important;
   `;
   
   const Logo = styled.a`
     padding: 1rem 0;
-    color: #7b7fda;
+    color: #67bc98;
     text-decoration: none;
     font-weight: 800;
     font-size: 1.7rem;
+    &:hover {
+      color: #67bc98;
+    }
     span {
       font-weight: 300;
       font-size: 1.3rem;
     }
+    
   `;
   
   const Menu = styled.div`
@@ -84,9 +91,9 @@ const Navbar = () => {
     flex-direction: column;
     cursor: pointer;
     span {
-      height: 2px;
+      height: 3px;
       width: 25px;
-      background: #7b7fda;
+      background: #67bc98;
       margin-bottom: 4px;
       border-radius: 5px;
     }
@@ -94,3 +101,8 @@ const Navbar = () => {
       display: flex;
     }
   `;
+  const style = {
+    width : "100%",
+    height : "11vh",
+    background : "blue"
+  }

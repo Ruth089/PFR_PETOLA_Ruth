@@ -4,7 +4,7 @@ import { Form, Container,Checkbox, Grid, Segment, Icon } from "semantic-ui-react
 
 const Inscription = () => {
     return ( 
-        <Container>
+        <Container style={styleContainer}> 
         <div className ="login">
         
         <form className="login-form text-center">
@@ -37,3 +37,7 @@ const Inscription = () => {
 }
  
 export default Inscription;
+
+const styleContainer = {
+    paddingTop : "10rem"
+}

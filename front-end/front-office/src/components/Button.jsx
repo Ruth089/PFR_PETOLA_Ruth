@@ -31,16 +31,8 @@ const ButtonStyle = styled.button`
 
 function Button({ namebutton, backgroundbutton, color, lien }) {
   return (
-    // <div>
-    //   <Link to={lien}>
-    //     <ButtonStyle
-    //       style={{ background: `${backgroundbutton}`, color: `${color}` }}
-    //     >
-    //       {namebutton}
-    //     </ButtonStyle>
-    //   </Link>
-    // </div>
-    <div className="form-group">
+    
+    <div className="form-group" >
         <button type="submit" className="btn mt-5 rounded-pill btn-lg btn-custom btn-block text-uppercase">
           {namebutton}
         </button>
@@ -49,3 +41,4 @@ function Button({ namebutton, backgroundbutton, color, lien }) {
 }
 
 export default Button;
+

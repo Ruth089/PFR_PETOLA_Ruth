@@ -4,60 +4,13 @@ import Inputs from "../components/Input"
 import Buttons from "../components/Button"
 // import Headers from "./"
 import "../scss/connexion.scss"
+import styled from "styled-components";
 //className="login-container"
 const PageDeConnexion = () => {
     return ( 
-        <Container>
-            
-        {/* //     <img src="" alt=""/>
-
-        //     <div className="container">
-
-        //         <div className="img">
-        //             <img src="" alt=""/>
-        //         </div>
-
-        //         <div className="login-container" >
-
-        //             <form action="">
-                        
-        //                 <img src="" alt=""/>
-
-        //                 <h2>Welcome</h2>
-
-        //                 <div className="input-div">
-        //                     <div className="i">
-        //                         <i className="fas fa-user"></i>
-        //                     </div>
-        //                     <div>
-        //                         <h5>Username</h5>
-        //                         <input className="input" type="text"/>
-        //                     </div>
-        //                 </div>
-
-        //                 <div className="input-div">
-        //                     <div className="i">
-        //                         <i className="fas fa-lock"></i>
-        //                     </div>
-        //                     <div>
-        //                         <h5>Password</h5>
-        //                         <input className="input" type="password"/>
-        //                     </div>
-        //                 </div>
-
-        //                 <a href="#">mot de passe oublié</a>
-                        
-        //                 <input type="submit" className="btn" value="login"/>
-        //             </form>
-
-        //         </div>
-                
-        //     </div> */}
+        <Container style={styleContainer}>
 
         <form className="login-form text-center">
-
-            <Inputs placeholder="Ruth" label="hello"/>
-            <Buttons namebutton="Se connecter" />
             <h1 className="mb-5 font-weight-light text-uppercase">Login</h1>
 
             <div className="form-group">
@@ -88,3 +41,7 @@ const PageDeConnexion = () => {
 }
  
 export default PageDeConnexion;
+
+const styleContainer = {
+    paddingTop : "10rem"
+}
