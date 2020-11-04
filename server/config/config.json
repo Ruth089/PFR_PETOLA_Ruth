@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "ruth",
+    "password": "Ruthndovia@2020",
+    "database": "Petola_dev",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "ruth",
+    "password": "Ruthndovia@2020",
+    "database": "Petola_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "ruth",
+    "password": "Ruthndovia@2020",
+    "database": "Petola_prod",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
