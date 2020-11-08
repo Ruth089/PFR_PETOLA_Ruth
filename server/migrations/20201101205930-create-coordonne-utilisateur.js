@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       num_tel: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       ville: {
         type: Sequelize.STRING

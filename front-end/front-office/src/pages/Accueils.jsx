@@ -1,21 +1,32 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import { CSVLink} from "react-csv";
 import { Container, Card , Icon} from 'semantic-ui-react';
-import Button from '../components/Button'
+import axios from "axios"
 
-
-import Cards from '../components/composantsAccueil/Cards'
-// import "../scss/accueil.scss"
 import BarreDeNavigation from '../components/BarredeNavigation'
 import image from "../images/ghana.jpg"
 
 const Accueils = () => {
+
+  const [datas, setDatas] = useState([]);
     
     const description = [
         'Amy is a violinist with 2 years experience in the wedding industry.',
         'She enjoys the outdoors and currently resides in upstate New York.',
       ].join(' ')
+
+      useEffect(() => {
+        axios
+          .get(
+            `https://www.omdbapi.com/?s=man&apikey=4a3b711b`
+          )
+          .then((response) => {
+            setDatas(response.data);
+            console.log(response.data);
+          });
+       
+      }, []);
 
     const headers = [
         {
@@ -81,14 +92,19 @@ const Accueils = () => {
           </Banniere>
           <br/>
           <Div>
-          <Card>
-            <Card.Content header='About Amy' />
-            <Card.Content description={description} />
-            <Card.Content extra>
-            <Icon name='user' />4 Friends
-            </Card.Content>
-            </Card>
-            
+            <div>
+              <Card>
+              <Card.Content>
+                <Img src={""} />
+                <Paragraphe></Paragraphe>
+              </Card.Content>
+              
+              <Card.Content extra>
+              <Icon name='user' />4 Friends
+              </Card.Content>
+              </Card>
+
+            </div>
           </Div>
        
         Bonjour
@@ -122,10 +138,18 @@ const Banniere = styled.div`
   height: 40vh;
 `;
 const Div = styled.div`
-    display : flex;
+    display : grid;
     flex-direction : row;
     width : 800px;
     margin :  0 auto;
     justify-content: space-around;
 }
+`;
+const Img = styled.img`
+    
+
+`;
+const Paragraphe = styled.p`
+   
+
 `;
