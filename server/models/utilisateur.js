@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require("bcrypt");
 const {
   Model
 } = require('sequelize');
@@ -27,7 +28,17 @@ module.exports = (sequelize, DataTypes) => {
     type_paiement: DataTypes.STRING,
     numero_carte: DataTypes.STRING,
     code_secret: DataTypes.STRING
-  }, {
+  }, 
+  {
+    hooks: {
+      afterValidate: (Utilisateur, options) => {
+        Utilisateur.pwd = bcrypt.hashSync(Utilisateur.pwd, 8);
+      }
+    },
+    sequelize
+  }
+  ,
+  {
     sequelize,
     modelName: 'Utilisateur',
   });

@@ -13,6 +13,7 @@ router.post("/utilisateurs", (req, res) => {
     photo : req.body.photo,
     numero_carte :req.body.numero_carte,
     code_secret : req.body.code_secret
+    
   })
   .then((utilisateurs) => res.status(201).json(utilisateurs))
   .catch((err) => res.status(400).json(err));
