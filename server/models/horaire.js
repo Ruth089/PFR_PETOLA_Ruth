@@ -22,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
     jour: DataTypes.STRING,
     heure_debut: DataTypes.STRING,
     heure_fin: DataTypes.STRING
-   
   }, {
     sequelize,
     modelName: 'Horaire',

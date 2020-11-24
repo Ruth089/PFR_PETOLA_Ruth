@@ -6,10 +6,10 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       num_tel: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       ville: {
         type: Sequelize.STRING

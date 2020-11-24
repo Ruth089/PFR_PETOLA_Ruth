@@ -8,20 +8,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      heure_debut: {
-        allowNull: true,
-        type: Sequelize.DATE
-      },
-      heure_fin: {
-        allowNull: true,
-        type: Sequelize.DATE
+      description: {
+        
+        type: Sequelize.STRING
       },
       type_de_collecte: {
-        allowNull: false,
+       
         type: Sequelize.STRING
       },
       prix: {
-        allowNull: false,
+        
         type: Sequelize.INTEGER
       },
       StartupId: {
@@ -32,14 +28,6 @@ module.exports = {
           key : 'id'
         }
       },
-      // id_utilisateur: {
-      //   allowNull: false,
-      //   type: Sequelize.INTEGER,
-      //   references : {
-      //     model : 'Utilisateurs',
-      //     key : 'id'
-      //   }
-      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -51,6 +39,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Plannings');
+    await queryInterface.dropTable('Subscriptions');
   }
 };

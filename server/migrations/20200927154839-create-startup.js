@@ -16,14 +16,6 @@ module.exports = {
         allowNull: true,
         type: Sequelize.STRING
       },
-      // CoordonneId: {
-      //   allowNull: false,
-      //   type: Sequelize.INTEGER,
-      //   references : {
-      //     model : 'Coordonnes',
-      //     key : 'id'
-      //   }
-      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

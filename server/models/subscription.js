@@ -21,8 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Subscription.init({
-    heure_debut: DataTypes.DATE,
-    heure_fin: DataTypes.DATE,
+    description: DataTypes.STRING,
     type_de_collecte: DataTypes.STRING,
     prix: DataTypes.INTEGER
   }, {

@@ -11,7 +11,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nom_utilisateur: {
+      noms: {
         allowNull: false,
         type: Sequelize.STRING
       },

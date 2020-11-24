@@ -7,13 +7,13 @@ const Utilisateur = db.Utilisateur
 
 router.post("/utilisateurs", (req, res) => {
     Utilisateur.create({
-    noms : req.body.nom_utilisateur,
+    noms : req.body.noms,
     email : req.body.email,
     pwd : req.body.pwd,
     photo : req.body.photo,
+    type_paiement : req.body.type_paiement,
     numero_carte :req.body.numero_carte,
     code_secret : req.body.code_secret
-    
   })
   .then((utilisateurs) => res.status(201).json(utilisateurs))
   .catch((err) => res.status(400).json(err));
@@ -22,13 +22,13 @@ router.post("/utilisateurs", (req, res) => {
 router.post("/utilisateurs/login", (req, res, next) => {
     Utilisateur
       .findAll({ where: { email: req.body.email }, include: [db.LocalisationUtilisateur]})
-      .then((user) => {
-        if (user.length < 1) {
+      .then((utilisateur) => {
+        if (utilisateur.length < 1) {
           return res.status(404).json({
             message: "email non trouvé, cet employé n existe pas",
           });
         }
-        bcrypt.compare(req.body.pwd, user[0].pwd, (err, result) => {
+        bcrypt.compare(req.body.pwd, utilisateur[0].pwd, (err, result) => {
           if (err) {
             return res.status(401).json({
               message: "authentification échouée",
@@ -37,12 +37,13 @@ router.post("/utilisateurs/login", (req, res, next) => {
           if (result) {
             const token = jwt.sign(
               {
-                noms : user[0].noms,
-                email : user[0].email,
-                pwd : user[0].pwd,
-                photo : user[0].photo,
-                numero_carte :user[0].numero_carte,
-                code_secret : user[0].code_secret
+                noms : utilisateur[0].noms,
+                email : utilisateur[0].email,
+                pwd : utilisateur[0].pwd,
+                photo : utilisateur[0].photo,
+                type_paiement : utilisateur[0].type_paiement,
+                numero_carte :utilisateur[0].numero_carte,
+                code_secret : utilisateur[0].code_secret
               },
               process.env.JWT_KEY,
               {

@@ -22,9 +22,20 @@ module.exports = (sequelize, DataTypes) => {
   Employe.init({
     nom_employe: DataTypes.STRING,
     prenom: DataTypes.STRING,
+    email: DataTypes.STRING,
     pwd: DataTypes.STRING,
-    email: DataTypes.STRING
+    poste : DataTypes.STRING,
+    photo : DataTypes.STRING
   },
+  {
+    hooks: {
+      afterValidate: (Employe, options) => {
+        Employe.pwd = bcrypt.hashSync(Employe.pwd, 8);
+      }
+    },
+    sequelize
+  }
+  ,
    {
     sequelize,
     modelName: 'Employe',

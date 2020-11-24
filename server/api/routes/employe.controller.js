@@ -3,65 +3,66 @@ const router = express.Router();
 const db = require("../../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const Employe = db.employe
+const Employe = db.Employe
 
 router.post("/employes", (req, res) => {
   Employe.create({
-    nom: req.body.nom_employe,
+    nom_employe: req.body.nom_employe,
     prenom: req.body.prenom,
-    email: req.body.email,
-    pwd: req.body.pwd,
-    email: req.body.email
+    email : req.body.email,
+    pwd : req.body.pwd,
+    poste : req.body.poste,
+    photo : req.body.photo
   })
-  .then((unEmploye) => res.status(201).json(unEmploye))
-  .catch((err) => res.status(400).json(err));
+.then((employes) => res.status(201).json(employes))
+.catch((err) => res.status(400).json(err));
 });
 
-router.post("/employes/login", (req, res, next) => {
-    Employe
-      .findAll({ where: { email: req.body.email } })
-      .then((user) => {
-        if (user.length < 1) {
-          return res.status(404).json({
-            message: "email non trouvé, cet employé n existe pas",
+router.post("/employes/startips/:id/login", (req, res, next) => {
+  Employe
+    .findAll({ where: { email: req.body.email }, include: [db.LocalisationStartup]})
+    .then((employe) => {
+      if (employe.length < 1) {
+        return res.status(404).json({
+          message: "email non trouvé, cet employé n existe pas",
+        });
+      }
+      bcrypt.compare(req.body.pwd, employe[0].pwd, (err, result) => {
+        if (err) {
+          return res.status(401).json({
+            message: "authentification échouée",
           });
         }
-        bcrypt.compare(req.body.pwd, user[0].pwd, (err, result) => {
-          if (err) {
-            return res.status(401).json({
-              message: "authentification échouée",
-            });
-          }
-          if (result) {
-            const token = jwt.sign(
-              {
-                email: user[0].email,
-                employeId: user[0].id,
-                nom: user[0].nom,
-                prenom: user[0].prenom,
-                role: user[0].role,
-                page_acces: user[0].page_acces,
-              },
-              process.env.JWT_KEY,
-              {
-                expiresIn: "1h",
-              }
-            );
-  
-            return res.status(200).json({
-              message: "authentification reussie",
-              token: token,
-            });
-          }
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json({
-          error: err,
-       });
-    });
+        if (result) {
+          const token = jwt.sign(
+            {
+              nom_employe: employe[0].nom_employe,
+              prenom: prenom[0].prenom,
+              email : employe[0].email,
+              pwd : employe[0].pwd,
+              poste :  employe[0].poste,
+              photo : employe[0].photo,
+              StartupId : Number(req.params.id)
+            },
+            process.env.JWT_KEY,
+            {
+              expiresIn: "1h",
+            }
+          );
+
+          return res.status(200).json({
+            message: "authentification reussie",
+            token: token,
+          });
+        }
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+     });
+  });
 });
-  
+
 module.exports = router;
-  

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   CoordonneStartup.init({
-    num_tel: DataTypes.INTEGER,
+    num_tel: DataTypes.STRING,
     ville: DataTypes.STRING,
     commune: DataTypes.STRING,
     quartier: DataTypes.STRING,
