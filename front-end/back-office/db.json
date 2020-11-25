@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "titre": "Post One",
+      "body": "This is yhe post body",
+      "publishedAt": "10-01-2020"
+    },
+    {
+      "id": "2",
+      "titre": "Post Two",
+      "body": "This is yhe post body",
+      "publishedAt": "10-01-2020"
+    },
+    {
+      "id": "3",
+      "titre": "Post Three",
+      "body": "This is yhe post body no body",
+      "publishedAt": "10-01-2020"
+    },
+    {
+      "titre": "Post four",
+      "body": "This is yhe post body",
+      "publishedAt": "10-01-2020",
+      "id": "vAr8OGN"
+    },
+    {
+      "titre": "Post five",
+      "body": "This is yhe post body",
+      "publishedAt": "10-01-2020",
+      "id": "uvPH29b"
+    },
+    {
+      "titre": "sxx,",
+      "body": "dkxkjc",
+      "publishedAt": "2020-11-25",
+      "id": "6RNwfND"
+    },
+    {
+      "titre": "sxx,",
+      "body": "jjj",
+      "publishedAt": "2020-11-26",
+      "id": "3JWmZjT"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Ruth Ndovia",
+      "email": "ruth@gmail.com"
+    }
+  ]
+}

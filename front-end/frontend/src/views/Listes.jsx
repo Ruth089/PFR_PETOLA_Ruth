@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Wrapper from "../components/Wrapper";
 import Button from "../components/Button";
 import Cards from "../components/Cards";
+import { Container } from "reactstrap";
 
 const ListeStyle = styled.div`
   padding: 10px;
@@ -16,19 +17,33 @@ const ListeStyle = styled.div`
 
 function Listes() {
   return (
+  <Container>
     <Wrapper>
+      <div className="carousel-item">
+        <div className="row" alt="First slide" alt="Second slide"> 
+          <div className="col-6 firstslide">
+              <img className="d-block w-100" src="" alt=""/>
+              <img className="d-block w-100" src="" alt=""/>
+              <img className="d-block w-100" src="" alt=""/>
+              <img className="d-block w-100" src="" alt=""/>
+              <img className="d-block w-100" src="" alt=""/>
+          </div>
+        </div>
+      </div>
+      
       <ListeStyle>
         <br />
         <h1>Listes des signalements</h1>
         <Cards />
-        <Button
+        {/* <Button
           namebutton="afficher par categorie"
           backgroundbutton="#c80000"
           color="white"
           lien="/affichage"
-        />
+        /> */}
       </ListeStyle>
     </Wrapper>
+    </Container>
   );
 }
 

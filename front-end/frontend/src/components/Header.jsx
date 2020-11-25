@@ -49,12 +49,12 @@ function Header() {
           <NavItem>
                <Url to="/"><NavLink>Acceuil</NavLink></Url> 
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
                <Url to="/plaintes"><NavLink>Signaler</NavLink></Url> 
-            </NavItem>
-            <NavItem>
+            </NavItem> */}
+            {/* <NavItem>
               <Url to="/recherche"><NavLink>Recherche</NavLink></Url> 
-            </NavItem>
+            </NavItem> */}
             <NavItem>
               <Url to="/listes-plaintes"><NavLink>Liste plaintes</NavLink></Url> 
             </NavItem>
