@@ -14,12 +14,9 @@ router.post("/startups", (req, res) => {
 
 router.get("/startups", (req, res) => {
     Startup
-      .findAll({include: [db.Employe, db.Subscription, db.Horaire,
-        {
-          model : db.LocalisationStartup,
-          include : [db.CoordonneStartup]
-        }
-       ]})
+      .findAll(
+        {include: [db.Employe, db.Subscription, db.Horaire,db.CoordonneStartup]}
+       )
       .then((startups) => {
         return res.send(startups);
     })
@@ -28,15 +25,32 @@ router.get("/startups", (req, res) => {
 router.get("/startups/:id", (req, res) => {
   Startup
     .findAll({where: { id: Number(req.params.id)}, 
-      include: [db.Employe, db.Subscription, db.Horaire,
-        {
-          model : db.LocalisationStartup,
-          include : [db.CoordonneStartup]
-        }
-       
+      include: [db.Employe, db.Subscription, db.Horaire,db.CoordonneStartup
        ]})
     .then((startups) => {
       return res.send(startups);
+  })
+  .catch((err) => res.status(404).json(err));
+});
+
+router.put("/startups/:id", (req, res) => {
+  Startup
+    .update(req.body, {
+      where: { id: Number(req.params.id)}
+    })
+    .then((startup) => {
+      return res.send(startup);
+  })
+  .catch((err) => res.status(404).json(err));
+});
+
+router.delete("/startups/:id", (req, res) => {
+  Startup
+    .destroy({
+      where: { id: Number(req.params.id)}
+    })
+    .then((startup) => {
+      return res.send("suppression effectuée avec succes");
   })
   .catch((err) => res.status(404).json(err));
 });

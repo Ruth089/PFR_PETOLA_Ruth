@@ -17,14 +17,19 @@ module.exports = {
       commune: {
         type: Sequelize.STRING
       },
-      quartier: {
-        type: Sequelize.STRING
-      },
-      avenu: {
+      rue_avenu: {
         type: Sequelize.STRING
       },
       numero: {
         type: Sequelize.STRING
+      },
+      UtilisateurId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references : {
+          model : 'Utilisateurs',
+          key : 'id'
+        }
       },
       createdAt: {
         allowNull: false,

@@ -11,15 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.CoordonneStartup.hasMany(models.LocalisationStartup);
+      models.CoordonneStartup.belongsTo(models.Startup, {
+        foreignKey : {
+          allowNull: false
+        }
+      });
     }
+   
   };
   CoordonneStartup.init({
     num_tel: DataTypes.STRING,
     ville: DataTypes.STRING,
     commune: DataTypes.STRING,
-    quartier: DataTypes.STRING,
-    avenu: DataTypes.STRING,
+    rue_avenu: DataTypes.STRING,
     numero: DataTypes.STRING
   }, {
     sequelize,

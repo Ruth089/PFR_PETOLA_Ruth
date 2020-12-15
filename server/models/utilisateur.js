@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 
       models.Utilisateur.hasMany(models.Abonnement);
 
-      models.Utilisateur.hasMany(models.LocalisationUtilisateur);
+      models.Utilisateur.hasMany(models.Utilisateur);
 
     }
   };

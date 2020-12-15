@@ -9,31 +9,31 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nom_employe: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       prenom: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       email: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       pwd: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       }, 
       poste: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       }, 
       photo: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       email: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       StartupId: {

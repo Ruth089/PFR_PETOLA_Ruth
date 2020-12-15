@@ -5,20 +5,29 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Employe = db.Employe
 
-router.post("/employes", (req, res) => {
+router.post("/employes/startups/:id", (req, res) => {
   Employe.create({
     nom_employe: req.body.nom_employe,
     prenom: req.body.prenom,
     email : req.body.email,
     pwd : req.body.pwd,
     poste : req.body.poste,
-    photo : req.body.photo
+    // photo : req.body.photo,
+    StartupId : Number(req.params.id)
   })
 .then((employes) => res.status(201).json(employes))
 .catch((err) => res.status(400).json(err));
 });
 
-router.post("/employes/startips/:id/login", (req, res, next) => {
+router.get("/employes/startups", (req, res) => {
+  Employe.findAll({
+    include: [db.Startup]
+  })
+.then((employes) => res.status(201).json(employes))
+.catch((err) => res.status(400).json(err));
+});
+
+router.post("/employes/login", (req, res, next) => {
   Employe
     .findAll({ where: { email: req.body.email }, include: [db.LocalisationStartup]})
     .then((employe) => {
