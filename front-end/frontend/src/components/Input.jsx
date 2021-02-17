@@ -6,7 +6,11 @@ const Input = (props) => {
     return (
         <Form.Field>
             <label>{props.label}</label>
-            <input placeholder={props.placeholder} type={props.type} />
+            <input 
+                placeholder={props.placeholder} 
+                type={props.type} 
+                value= {props.value}
+            />
         </Form.Field>
     )
 }

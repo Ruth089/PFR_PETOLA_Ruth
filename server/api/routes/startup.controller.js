@@ -6,6 +6,7 @@ const Startup = db.Startup
 router.post("/startups", (req, res) => {
     Startup.create({
         nom: req.body.nom,
+        adresse : req.body.adresse,
         description:req.body.description
     })
   .then((startup) => res.status(201).json(startup))
@@ -15,7 +16,7 @@ router.post("/startups", (req, res) => {
 router.get("/startups", (req, res) => {
     Startup
       .findAll(
-        {include: [db.Employe, db.Subscription, db.Horaire,db.CoordonneStartup]}
+        {include: [db.Employe, db.Tarif, db.Horaire,db.CoordonneStartup]}
        )
       .then((startups) => {
         return res.send(startups);

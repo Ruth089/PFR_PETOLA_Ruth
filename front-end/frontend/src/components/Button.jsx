@@ -8,20 +8,22 @@ const media = {
   phonebg: "@media(min-width: 425px)",
 };
 
+
 const ButtonStyle = styled.button`
   ${media.phone} {
-    width: 100%;
+    // width: 100%;
     margin: 0 auto;
-    height: 50px;
-    border-radius: 20px;
-    border: none;
+    height:48px;
+    border-radius: 5px;
+    border-style: none;
     cursor: pointer;
     font-family: Comfortaa;
     font-style: normal;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 14px;
-  }
+  };
+  
 `;
 
 // const Link = styled.a`
@@ -29,12 +31,13 @@ const ButtonStyle = styled.button`
 //   color: white;
 // `;
 
-function Button({ namebutton, backgroundbutton, color, lien }) {
+function Button({ namebutton, backgroundbutton, color, lien, largeur }) {
   return (
     <div>
-      <Link to={lien}>
+      <Link to={lien} >
         <ButtonStyle
-          style={{ background: `${backgroundbutton}`, color: `${color}` }}
+          style={{ background: `${backgroundbutton}`, color: `${color}`, width: `${largeur}` }}
+          
         >
           {namebutton}
         </ButtonStyle>

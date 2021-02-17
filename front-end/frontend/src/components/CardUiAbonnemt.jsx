@@ -1,5 +1,5 @@
 import React from "react";
-
+import moment from "moment";
 import styled from "styled-components";
 import { FaEye, FaHeart, FaMapMarkerAlt } from "react-icons/fa";
 
@@ -10,6 +10,7 @@ const CardStyled = styled.div`
   .contenu {
     display: flex;
     // justify-content: space-between;
+    
   }
   .reaction {
     display: flex;
@@ -23,12 +24,15 @@ const CardStyled = styled.div`
 `;
 const DivStyle = styled.div`
   margin-left: 15px;
+  span {
+    margin-left :10px;
+  }
 `;
 const Img = styled.img`
   width: 130px;
   height: 80px;
   border-radius: 5px;
-  // margin-left: 10px;
+  margin-left: 10px;
 `;
 const TitreStyle = styled.h5`
   text-align: left;
@@ -40,21 +44,23 @@ const Text = styled.p`
   margin-left : 10px;
 `;
 
-const CardUi = (props) => {
-  const { image, nom,description , adresse} = props;
+const CardUiAbonnement = (props) => {
+  const { image, nom, typeAbonnement, dateAbonnement} = props;
   return (
     <CardStyled>
-      <div className="contenu">
-        <Img src={image} alt="image" />
-        <DivStyle>
-          <TitreStyle> {nom.toUpperCase()} </TitreStyle>
-          <Text> {description} </Text>
-          <i>
-            <FaMapMarkerAlt style={{ marginRight: "5px" }} />
-            <span> {adresse} </span>
-          </i>
-        </DivStyle>
-      </div>
+    <div className="contenu">
+      <Img src={image} alt="image" />
+      <DivStyle>
+        <TitreStyle> {nom} </TitreStyle>
+        <span>Date début : {moment(dateAbonnement).format('L')}</span> <br/>
+        <span>Date fin : {moment(dateAbonnement).format('L')} </span>
+        <Text>Type : {typeAbonnement} </Text>
+        {/* <i>
+          <FaMapMarkerAlt style={{ marginRight: "5px" }} />
+          <span> {"adresse"} </span>
+        </i> */}
+      </DivStyle>
+    </div>
       
       {/* <div className="reaction">
         <i>
@@ -70,4 +76,4 @@ const CardUi = (props) => {
   );
 };
 
-export default CardUi;
+export default CardUiAbonnement;

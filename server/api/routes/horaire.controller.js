@@ -32,8 +32,19 @@ router.get("/horaires/:id", (req, res) => {
     .findAll({where: { id: Number(req.params.id)},
         include: [db.Startup]
     })
-    .then((subscriptions) => {
-      return res.send(subscriptions);
+    .then((horaire) => {
+      return res.send(horaire);
+  })
+  .catch((err) => res.status(404).json(err));
+});
+
+router.get("/horaires/startup/:id", (req, res) => {
+  Horaire
+    .findAll({where: { StartupId : Number(req.params.id)},
+        include: [db.Startup]
+    })
+    .then((horaire) => {
+      return res.send(horaire);
   })
   .catch((err) => res.status(404).json(err));
 });

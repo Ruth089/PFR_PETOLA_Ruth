@@ -8,7 +8,9 @@ const media = {
   phone: "@media(min-width: 320px)",
   phonelg: "@media(min-width: 375px)",
   phonebg: "@media(min-width: 425px)",
+  allphone : "@media all and (max-width: 425px)"
 };
+
 
 const MenuStyle = styled.div`
   ${media.phone} {
@@ -81,9 +83,7 @@ function Menu({ open }) {
         <NavItem>
           <NavLink href="/listes-plaintes">Liste plaintes</NavLink>
         </NavItem>
-        <NavItem>
-          <NavLink href="/carthographie">Carthographie</NavLink>
-        </NavItem>
+        
         <NavItem>
           <NavLink href="/connexion">Connexion</NavLink>
         </NavItem>

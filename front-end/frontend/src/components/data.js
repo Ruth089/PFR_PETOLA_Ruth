@@ -1,4 +1,4 @@
-import image from "../images/image-rue.jpg";
+import image from "../assets/images/ghana.jpg";
 
 const data = [
   {
@@ -8,7 +8,7 @@ const data = [
     commune: "gombe",
     categorie: "infrastuture",
     description:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore dolorum, esse totam incidunt alias repudiandae? Earum eligendi rem ametatque, consequatur quibusdam neque perspiciatis consequuntur qui quas  quisquam iste!",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     id: "2",
@@ -17,7 +17,7 @@ const data = [
     commune: "usha",
     categorie: "politique",
     description:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore dolorum, esse totam incidunt alias repudiandae? Earum eligendi rem ametatque, consequatur quibusdam neque perspiciatis consequuntur qui quas  quisquam iste!",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     id: "3",
@@ -26,7 +26,7 @@ const data = [
     commune: "lemba",
     categorie: "police",
     description:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore dolorum, esse totam incidunt alias repudiandae? Earum eligendi rem ametatque, consequatur quibusdam neque perspiciatis consequuntur qui quas  quisquam iste!",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
   },
   {
     id: "4",
@@ -35,7 +35,7 @@ const data = [
     commune: "kigashu",
     categorie: "mine",
     description:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore dolorum, esse totam incidunt alias repudiandae? Earum eligendi rem ametatque, consequatur quibusdam neque perspiciatis consequuntur qui quas  quisquam iste!",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
   },
   {
     id: "5",
@@ -44,7 +44,7 @@ const data = [
     commune: "masina",
     categorie: "police",
     description:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore dolorum, esse totam incidunt alias repudiandae? Earum eligendi rem ametatque, consequatur quibusdam neque perspiciatis consequuntur qui quas  quisquam iste!",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
 ];
 

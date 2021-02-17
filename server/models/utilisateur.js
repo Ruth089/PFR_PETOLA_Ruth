@@ -21,10 +21,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Utilisateur.init({
-    noms: DataTypes.STRING,
-    email: DataTypes.STRING,
+    nom: DataTypes.STRING,
+    prenom: DataTypes.STRING,
+    identifiant: DataTypes.STRING,
     pwd: DataTypes.STRING,
-    photo: DataTypes.STRING,
     type_paiement: DataTypes.STRING,
     numero_carte: DataTypes.STRING,
     code_secret: DataTypes.STRING

@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
       models.Startup.hasMany(models.Horaire);
 
-      models.Startup.hasMany(models.Subscription);
+      models.Startup.hasMany(models.Tarif);
 
       models.Startup.hasMany(models.Employe);
 
@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Startup.init({
     nom: DataTypes.STRING,
+    adresse: DataTypes.STRING,
     description: DataTypes.STRING
   }, {
     sequelize,

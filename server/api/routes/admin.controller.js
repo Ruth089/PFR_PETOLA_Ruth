@@ -31,21 +31,21 @@ router.post("/admins/login", (req, res, next) => {
           });
         }
         if (result) {
-          const token = jwt.sign(
-            {
-              nom: admin[0].nom,
-              pwd : admin[0].pwd,
-              role : admin[0].role  
-            },
-            process.env.JWT_KEY,
-            {
-              expiresIn: "1h",
-            }
-          );
+          // const token = jwt.sign(
+          //   {
+          //     nom: admin[0].nom,
+          //     pwd : admin[0].pwd,
+          //     role : admin[0].role  
+          //   },
+          //   process.env.JWT_KEY,
+          //   {
+          //     expiresIn: "1h",
+          //   }
+          // );
 
           return res.status(200).json({
             message: "authentification reussie",
-             token: token,
+            //  token: token,
           });
         }
       });

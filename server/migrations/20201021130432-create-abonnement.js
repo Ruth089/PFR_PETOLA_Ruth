@@ -9,21 +9,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       duree: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
+      },
+      adresse: {
+        type: Sequelize.STRING
+      },
+      TarifId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references : {
+          model : 'Tarifs',
+          key : 'id'
+        }
       },
       UtilisateurId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references : {
           model : 'Utilisateurs',
-          key : 'id'
-        }
-      },
-      SubscriptionId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references : {
-          model : 'Subscriptions',
           key : 'id'
         }
       },

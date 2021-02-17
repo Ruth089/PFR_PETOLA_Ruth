@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Abonnement extends Model {
+  class Tarif extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,24 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Abonnement.belongsTo(models.Tarif, {
+      models.Tarif.belongsTo(models.Startup, {
         foreignKey : {
           allowNull: false
         }
-      })
-      models.Abonnement.belongsTo(models.Utilisateur, {
-        foreignKey : {
-          allowNull: false
-        }
-      })
+      });
+
+      models.Tarif.hasMany(models.Abonnement);
     }
   };
-  Abonnement.init({
-    duree: DataTypes.STRING,
-    adresse: DataTypes.STRING
+  Tarif.init({
+   
+    type_de_collecte: DataTypes.STRING,
+    prix: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Abonnement',
+    modelName: 'Tarif',
   });
-  return Abonnement;
+  return Tarif;
 };

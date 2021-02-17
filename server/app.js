@@ -11,7 +11,7 @@ const Abonnement = require("./api/routes/abonnement.controller");
 const Horaire = require("./api/routes/horaire.controller");
 // const LocalisationStartup = require("./api/routes/localisationStartup.controller");
 // const LocalisationUtilisateur = require("./api/routes/localisationUtilisateur.controller");
-const Subscription = require("./api/routes/subscription.controller");
+const Tarif = require("./api/routes/tarif.controller");
 const Admin = require("./api/routes/admin.controller")
 // const utilisateur=require("./api/routes/utilisateur");
 // const checkAuth=require('./api/middleware/check-auth');
@@ -36,7 +36,7 @@ app.use("",Abonnement);
 app.use("",Horaire);
 // app.use("",LocalisationStartup);
 // app.use("",LocalisationUtilisateur);
-app.use("",Subscription);
+app.use("",Tarif);
 app.use("",Admin);
 
 app.use((req, res, next) => {

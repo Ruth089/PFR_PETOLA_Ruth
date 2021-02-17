@@ -1,7 +1,7 @@
 const http = require("http");
 const app = require("./app");
 const chalk = require("chalk");
-const port = process.env.PORT || 5500;
+const port = process.env.PORT || 4500;
 
 require('dotenv').config();
 const server = http.createServer(app);

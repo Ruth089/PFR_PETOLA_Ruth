@@ -1,85 +1,149 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import image from "../assets/images/ghana.jpg";
+import { Container, Table, Input, Button} from 'semantic-ui-react';
+import { FaEye, FaHeart, FaShareSquare, FaArrowLeft, FaMapMarkerAlt } from "react-icons/fa";
 
-import { FaEye, FaHeart, FaShareSquare, FaArrowLeft } from "react-icons/fa";
-import data from "./data";
 import Wrapper from "./Wrapper";
+import sacPoubelle from "../assets/images/sacPoubelle.jpg";
+import hommePortePoubelle from "../assets/images/hommePortePoubelle.jpg";
+import poubelle from "../assets/images/poubelle.jpg"
+import Horaire from "./Horaire"
+import TypeAbonnemt from "./TypeAbonnemt"
 
 import styled from "styled-components";
 
+const media = {
+  phone: "@media(min-width: 320px)",
+  phonelg: "@media(min-width: 375px)",
+  phonebg: "@media(min-width: 425px)",
+  allphone : "@media all and (max-width: 425px)"
+};
+
 const Img = styled.img`
-  width: 100%;
-  height: 200px;
-  border-radius: 20px;
+  width: 300px;
+  height: 150px;
+  border-radius: 5px;
+  
+  ${media.allphone}{
+    width : 100%;
+  }
 `;
 
-const Container = styled.div`
-  padding: 10px;
+const Containers = styled.div`
+  
+  padding: 0px 0px 150px;
+  
+  .entete{
+    display : flex;
+    
+    > .section2 {
+      margin-left : 10px;
+      font-size : 17px;
 
-  .reaction {
-    display: flex;
-    justify-content: space-between;
+      div{
+        margin-bottom : 5px;
+      }
+    }
+
+  }
 
     i {
       padding: 5px;
     }
   }
-`;
-const Text = styled.p`
-  font-size: 1rem;
-  text-align: left;
+  ${media.allphone}{
+      
+    .entete{
+      flex-direction : column;
+      > .section2 {
+        margin-left : 10px;
+        font-size : 15px;
+        margin-top : 10px; 
+      }
+    }
+    
+
+  }
 `;
 
-function Card({ match }) {
-  const id = match.params.id;
-  const items = data.find((item) => item.id === id);
+
+
+
+function Card({match}) {
+  const [horaires, setHoraires] = useState([]);
+  const [abonnements, setAbonnements] = useState([]);
+  const data = JSON.parse(localStorage.getItem("detailStartup"))
+  console.log(data)
+  const ID = data.id
+
+  useEffect(() => {
+    axios
+    .get(`http://localhost:4500/tarifs/startup/${ID}`)
+    .then((res) => { setAbonnements(res.data)})
+    axios
+    .get(`http://localhost:4500/horaires/startup/${ID}`)
+    .then((res) => { setHoraires(res.data)})
+  },[]);
+  
   return (
-    <Wrapper>
-      <Container>
-        <h2>
-          <span>
-            <i>
-              <a href="/listes-plaintes">
-                <FaArrowLeft
-                  style={{
-                    fontSize: "1.5rem",
-                    color: "#c80000",
-                    position: "relative",
-                    top: "-4px",
-                  }}
-                />
-              </a>
-            </i>
-          </span>{" "}
-          Details
-        </h2>
-        <br />
-        <Img src={items.image} alt="image" /> <br />
-        <div className="reaction">
-          <i>
-            <FaEye style={{ marginRight: "10px" }} />
-            <span>1227</span>
-          </i>
-          <i>
-            <span>2</span>
-            <FaHeart style={{ marginLeft: "10px", color: "red" }} />
-            <FaShareSquare style={{ marginLeft: "10px" }} />
-          </i>
-        </div>
-        <div>
-          <strong>Ville : </strong> {items.ville}
-        </div>
-        <div>
-          <strong>Commune : </strong> {items.commune}
-        </div>
-        <div>
-          <strong>Categorie : </strong> {items.categorie}
-        </div>
-        <div>
-          <h5>Description</h5>
-          <Text>{items.description}</Text>
-        </div>
-      </Container>
-    </Wrapper>
+    <Container>
+      <Wrapper>
+        <Containers>
+          <br/>
+          <h2> Details</h2>
+          
+          <div className="entete">
+            <div className = "section1">
+              <Img src={image} alt="logo" />
+            </div>
+          
+            <div className="section2">
+              <div> 
+                <strong>Nom : </strong> {data.nom.toUpperCase()}
+              </div>
+              <div>
+                <strong>Description : </strong> {data.description}
+              </div>
+              <div>
+                <strong>Adresse : </strong>
+                <i>
+                  <FaMapMarkerAlt style={{ marginRight: "10px" }} />
+                  <span> {data.adresse} </span>
+                </i>
+              </div>
+            </div>
+          </div>  
+                
+          <br/>
+          <h4> Abonnement</h4>
+          <div>
+            <TypeAbonnemt
+              abonnements = {abonnements}
+            />
+          </div>
+         
+          <h4> Horaire</h4>
+          <div>
+            <Horaire
+              horaires = {horaires}
+            />
+          </div>   
+
+          <Link to='/FormAbonnemt'>
+            <Button 
+              positive
+              // floated="right"
+              className={`ui fluid large green submit button`}
+            >
+              S'abonner
+            </Button>
+          </Link> 
+
+        </Containers>
+      </Wrapper>
+    </Container>
   );
 }
 

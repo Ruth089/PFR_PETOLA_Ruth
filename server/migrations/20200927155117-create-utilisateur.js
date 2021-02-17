@@ -11,32 +11,32 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      noms: {
-        allowNull: false,
+      nom: {
+        // allowNull: false,
         type: Sequelize.STRING
       },
       prenom: {
-        allowNull: true,
+        // allowNull: true,
+        type: Sequelize.STRING
+      },
+      identifiant: {
+        // allowNull: true,
         type: Sequelize.STRING
       },
       pwd: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      photo: {
-        allowNull: true,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       type_paiement: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       numero_carte: {
-        allowNull: true,
+        // allowNull: true,
         type: Sequelize.STRING
       },
       code_secret: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
