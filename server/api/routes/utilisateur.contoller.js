@@ -9,8 +9,8 @@ router.post("/utilisateurs", (req, res) => {
     Utilisateur.create({
     nom : req.body.nom,
     prenom : req.body.prenom,
-    identifiant : req.body.identifant,
-    pwd : req.body.pwd
+    pwd : req.body.pwd,
+    pseudonom : req.body.pseudonom
   })
   .then((utilisateurs) => res.status(201).json(utilisateurs))
   .catch((err) => res.status(400).json(err));
@@ -18,7 +18,7 @@ router.post("/utilisateurs", (req, res) => {
 
 router.post("/utilisateurs/login", (req, res, next) => {
     Utilisateur
-      .findAll({ where: { identifant: req.body.identifant }})
+      .findAll({ where: { pseudonom: req.body.pseudonom }})
       .then((utilisateur) => {
         if (utilisateur.length < 1) {
           return res.status(404).json({
@@ -31,16 +31,13 @@ router.post("/utilisateurs/login", (req, res, next) => {
               message: "authentification échouée",
             });
           }
+          if (result)
           // if (result) {
           //   const token = jwt.sign(
           //     {
-          //       noms : utilisateur[0].noms,
-          //       email : utilisateur[0].email,
+          //       nom : utilisateur[0].nom,
+          //       prenom : utilisateur[0].prenom,
           //       pwd : utilisateur[0].pwd,
-          //       photo : utilisateur[0].photo,
-          //       type_paiement : utilisateur[0].type_paiement,
-          //       numero_carte :utilisateur[0].numero_carte,
-          //       code_secret : utilisateur[0].code_secret
           //     },
           //     process.env.JWT_KEY,
           //     {
